@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Anunciar produto</h1>
+  <%= simple_form_for [@user, @product] do |f| %>
+    <%= f.input :category, as: :select, collection: ['Proteínas', 'Vegano', 'Vegetarianos', 'Termogênicos', 'Vitaminas', 'Clinical', 'Aminoácidos', 'Carboidratos'], prompt: 'Selecione um produto' %>
+    <%= f.input :brand, as: :select, collection: [ "Growth Supplements", "Max Titanium", "Integralmedica", "Black Skull", "Atlhetica Nutrition", "New Millen", "Optimum Nutrition", "Adaptogen", "Under Labz", "Dux Nutrition", "Vitafor", "Universal Nutrition", "Now Foods", "Puravida", "FTW"]  %>
+    <%= f.input :price %>
+    <%= f.input :stock %>
+    <%= f.input :url %>
+    <%= f.submit "Anunciar Produto", class: "btn btn-success text-light" %>
+    <%= link_to "Meus anúncios", user_path(@user), class: "btn btn-success text-light" %>
+  <% end %>
+</div>
