@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Meus Anuncios</h1>
+  <ul class="row list-unstyled">
+    <% @products.each do |product| %>
+      <li class="col-6">
+        <%= image_tag "Whey_teste.png", width: 200 %>
+        <h2><%= product.name %></h2>
+        <p>Marca: <%= product.brand %></p>
+        <p>R$ <%= product.price %></p>
+        <%= link_to "Editar Anuncio", edit_user_product_path(product), class:"btn btn-danger text-light rounded-4" %>
+        <%= link_to "Deletar Anuncio", user_product_path(@user), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger text-light rounded-4" %>
+      </li>
+    <% end %>
+  </ul>
+</div>
