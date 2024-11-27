@@ -12,8 +12,18 @@
                 <img src="https://cdn-icons-png.flaticon.com/512/1170/1170686.png" alt="Configurações" class="footer-icon">
                 <span>Configurações</span>
             </a>
-            <div class="profile">
+
+            <%# <div class="profile">
                 <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
-            </div>
+            </div> %>
+
+
+            <%= link_to new_user_session_path, class: "profile" do %>
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", alt: "Entrar", class: "footer-icon" %>
+            <% end %>
+
+
         </div>
     </footer>
+
+
