@@ -1,6 +1,26 @@
-<div class="container">
-  <h1>Produtos</h1>
-  <% @products.each do |product| %>
-    <p><%= product.name %></p>
-  <% end %>
+<div class="container-products mt-3">
+  <div class="row gx-20 gy-20">
+    <% @products.each do |product| %>
+      <div class="col-md-2 col-sm-12 col-12">
+        <div class="product-card">
+          <div class="product-card-image" style="background-image: url('<%= product.url %>')"></div>
+          <div class="product-card-content">
+            <div class="product-card-title">
+              <h6 id="product_<%= product.id %>"><%= link_to product.name, product_path(product) %></h6>
+            </div>
+            <div class="d-flex">
+              <div class="d-flex align-items-center ms-3">
+                <i class="fa-solid fa-brazilian-real-sign"></i>
+                <span> <%=  product.price  %>  </span>
+              </div>
+              <div style="margin: 0 10px;">|</div>
+              <div class="d-flex align-items-center">
+                <span>Stock: <%= product.stock %></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
