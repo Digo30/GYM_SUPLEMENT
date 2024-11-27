@@ -1,0 +1,14 @@
+
+
+<div class="my-account-container">
+  <div class="user-info">
+    <h1>Bem-vindo!</h1>
+    </div>
+
+  <div class="actions">
+    <%= link_to "Editar Perfil", edit_user_registration_path, class: "btn btn-edit" %>
+    <%= link_to "Meus Anúncios", user_products_path(current_user), class: "btn btn-ads" %>
+    <%= link_to "Sair", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-logout" %>
+  </div>
+
+</div>

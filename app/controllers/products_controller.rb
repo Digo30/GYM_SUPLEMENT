@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-  before_action :set_product, only: [:edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:new, :create, :edit, :destroy]
 
 
@@ -10,6 +10,10 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+  end
+
+  def show
+
   end
 
   def create

@@ -1,10 +1,16 @@
 <div class="container">
-  <div>
-    <h1><%= @product.name %></h1>
-    <p>Categoria: <%= @product.category %></p>
-    <%= image_tag "Whey_teste.png", width: 200 %>
-    <p class="fs-3">R$ <%= @product.price %></p>
-  </div>
-  <div>
+  <div class="d-flex container-show align-items-center text-center">
+    <div class="d-flex gap-2 ms-5">
+      <div>
+        <h1><%= @product.name %></h1>
+        <p>Categoria: <%= @product.category %></p>
+      </div>
+      <i class="fa-solid fa-star mt-3 text-danger"></i>
+      <i class="fa-solid fa-star mt-3 text-danger"></i>
+      <i class="fa-solid fa-star mt-3 text-danger"></i>
+      <i class="fa-solid fa-star mt-3 text-danger"></i>
+    </div>
+    <%= image_tag @product.url, width: 200 %>
+    <p class="fs-4">Preço: <%= number_to_currency(@product.price, unit: "R$", separator: ",", delimiter: ".", precision: 2) %></p>
   </div>
 </div>
