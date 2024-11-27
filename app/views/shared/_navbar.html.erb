@@ -12,15 +12,13 @@
               <%= link_to "#", class: "dropdown-item" do %>
               <%= image_tag "grid.png" %>  Categorias
               <%  end %>
-              <%= link_to "#", class: "dropdown-item" do %>
-              <%= image_tag "top.png" %> Top 20
-              <%  end %>
+              <%#= link_to "#", class: "dropdown-item" do %>
+              <%#= image_tag "top.png"  Top 20 %>
+              <%# ISSO ESTÁ COMENTADO PRA PODER SER VERIFICADO DEPOIS end %>
               <%= link_to "#", class: "dropdown-item" do %>
               <%= image_tag "anunciar.png" %> Anunciar
               <%  end %>
-              <%= link_to "#", class: "dropdown-item", data: {turbo_method: :delete} do %>
-              <%= image_tag "contato.png" %> Contato
-              <%  end %>
+              <%= link_to image_tag("contato.png") + "  Contato", contact_new_path, class: "dropdown-item" %>
               <%# link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>
