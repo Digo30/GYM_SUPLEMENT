@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :contacts, only: [:new, :create]
+
+
+  get 'contact/new'
+  get 'contact/create'
   devise_for :users
   root to: "pages#home"
   resources :users do
