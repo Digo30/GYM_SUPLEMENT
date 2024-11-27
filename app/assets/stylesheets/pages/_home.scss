@@ -1,13 +1,13 @@
 // Specific CSS for your home-page
 body {
-  background-color: rgb(129, 127, 127);
+  background-color: white;
 
 }
 
 .container-home{
   display: flex;
   flex-direction: column;
-  background-image: url('/assets/background_home.png');
+  background-image: url('https://res.cloudinary.com/dhkyacden/image/upload/v1732729038/khukhiyzho4derrgtvka.png');
   background-position: center;
   background-size: cover;
   min-height: 100vh;
