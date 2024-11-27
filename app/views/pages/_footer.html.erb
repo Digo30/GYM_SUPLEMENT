@@ -8,10 +8,11 @@
                 <img src="https://cdn-icons-png.flaticon.com/512/1007/1007988.png" alt="Pedidos" class="footer-icon">
                 <span>Pedidos</span>
             </a>
-
-            <%= link_to user_products_path(current_user) do %>
-              <img src="https://cdn-icons-png.flaticon.com/512/1007/1007988.png" alt="Pedidos" class="footer-icon">
-              <span>Meus Anúncios</span>
+            <% if user_signed_in? %>
+              <%= link_to my_products_user_path(current_user), class:"footer-link" do %>
+                <img src="https://cdn-icons-png.flaticon.com/512/1007/1007988.png" alt="Pedidos" class="footer-icon">
+                <span>Meus Anúncios</span>
+              <% end %>
             <% end %>
 
             <div class="profile">
