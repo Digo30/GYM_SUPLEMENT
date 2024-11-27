@@ -8,12 +8,16 @@
                 <img src="https://cdn-icons-png.flaticon.com/512/1007/1007988.png" alt="Pedidos" class="footer-icon">
                 <span>Pedidos</span>
             </a>
-            <a href="#" class="footer-link">
-                <img src="https://cdn-icons-png.flaticon.com/512/1170/1170686.png" alt="Configurações" class="footer-icon">
-                <span>Configurações</span>
-            </a>
+
+            <%= link_to user_products_path(current_user) do %>
+              <img src="https://cdn-icons-png.flaticon.com/512/1007/1007988.png" alt="Pedidos" class="footer-icon">
+              <span>Meus Anúncios</span>
+            <% end %>
+
             <div class="profile">
+              <%= link_to edit_user_registration_path do %>
                 <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+              <% end %>
             </div>
         </div>
     </footer>
