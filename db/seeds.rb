@@ -1,7 +1,7 @@
-# User.create!(email: 'teste@exemplo.com', password: 'senha123', password_confirmation: 'senha123')
-
-
 p "Criando Products"
+
+User.create!(email: 'teste@exemplo.com', password: 'senha123', password_confirmation: 'senha123')
+
 Product.create!(
   name: "Whey Protein",
   price: 110.00,
