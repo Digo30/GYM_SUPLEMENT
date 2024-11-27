@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   before_action :set_product, only: [:edit, :update, :destroy]
-  before_action :set_user, only: [:new, :create, :edit, :destroy]
+  before_action :set_user, only: [:index, :new, :create, :edit, :destroy]
 
 
   def index
