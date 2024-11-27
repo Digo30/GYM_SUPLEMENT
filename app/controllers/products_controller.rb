@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
-  before_action :set_product, only: [:edit, :update]
-  before_action :set_user, only: [:new, :create, :edit]
+  before_action :set_product, only: [:edit, :update, :destroy]
+  before_action :set_user, only: [:index, :new, :create, :edit, :destroy]
 
 
   def index
@@ -33,6 +33,10 @@ class ProductsController < ApplicationController
     end
   end
 
+  def destroy
+    @product.destroy
+    redirect_to user_path(@user), notice: 'Produto deletado com sucesso.'
+  end
 
   private
 
@@ -45,6 +49,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:category, :brand, :price, :stock)
+    params.require(:product).permit(:name, :price, :stock, :brand, :category, :url, :weight, :flavor)
   end
 end

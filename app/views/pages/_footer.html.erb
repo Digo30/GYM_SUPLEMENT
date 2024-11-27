@@ -13,17 +13,16 @@
                 <span>Configurações</span>
             </a>
 
-            <%# <div class="profile">
-                <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
-            </div> %>
-
+            <% if user_signed_in? %>
+              <%= link_to my_products_user_path(current_user), class:"footer-link" do %>
+                <img src="https://cdn-icons-png.flaticon.com/512/1007/1007988.png" alt="Pedidos" class="footer-icon">
+                <span>Meus Anúncios</span>
+              <% end %>
+            <% end %>
 
             <%= link_to new_user_session_path, class: "profile" do %>
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", alt: "Entrar", class: "footer-icon" %>
             <% end %>
 
-
         </div>
     </footer>
-
-
