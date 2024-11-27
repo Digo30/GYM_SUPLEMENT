@@ -6,6 +6,11 @@ class UsersController < ApplicationController
     @products = Product.where(user_id: @user.id)
   end
 
+  def my_products
+    @user = current_user
+    @products = @user.products
+  end
+
   private
 
   def set_user
