@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :users do
     resources :products
   end
-  resources :products, only: [:index, :show, :edit, :update, :destroy]
+  resources :products, only: [:index, :show]
   get "up" => "rails/health#show", as: :rails_health_check
 end
