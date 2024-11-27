@@ -18,8 +18,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def edit
-    
+
+
+  def my_account
+    @user = current_user
   end
 
 

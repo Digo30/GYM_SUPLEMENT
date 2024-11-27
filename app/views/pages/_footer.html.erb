@@ -16,7 +16,7 @@
 
             <% if user_signed_in? %>
             <!-- Ícone para "Minha Conta" -->
-            <%= link_to my_products_user_path(current_user), class: "footer-icon-link" do %>
+            <%= link_to my_account_path(current_user), class: "footer-icon-link" do %>
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", alt: "Minha Conta", class: "footer-icon" %>
             <% end %>
           <% else %>
