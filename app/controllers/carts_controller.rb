@@ -1,7 +1,7 @@
 class CartsController < ApplicationController
   before_action :authenticate_user!
 
-  #TESTE CONTAGEM DE ITENS
+  # TESTE CONTAGEM DE ITENS
   before_action :set_current_cart
 
   def show
@@ -22,17 +22,19 @@ class CartsController < ApplicationController
     quantity = params[:quantity].to_i
 
     # Se o produto já estiver no carrinho, aumente a quantidade
-
     quantity.zero? ? cart_item.quantity += 1 : cart_item.quantity += quantity
 
     # Salve o cart_item
     if cart_item.save
-      redirect_to carts_path(cart), notice: 'Produto adicionado ao carrinho.'
+      respond_to do |format|
+        format.js   # Renderiza add_product.js.erb por padrão
+      end
     else
-      redirect_to products_path, alert: 'Ocorreu um erro ao adicionar o produto.'
+      respond_to do |format|
+        format.js   # Renderiza add_product.js.erb ou mostra um erro via JS
+      end
     end
   end
-
 
   def remove_product
     product = Product.find_by(id: params[:product_id])
@@ -50,14 +52,9 @@ class CartsController < ApplicationController
     redirect_to carts_path
   end
 
-
-
-
   private
 
   def set_current_cart
     @current_cart = Cart.find_or_create_by(user: current_user) if user_signed_in?
   end
-
-
 end
