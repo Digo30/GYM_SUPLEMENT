@@ -10,3 +10,24 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.nav-container {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.dropdow {
+  position: relative;
+}
+.div-dropdown {
+  position: absolute;
+  left: 0;
+}
+
+@media (max-width: 600px) {
+  .logo-img {
+    width: 70px;
+  }
+}
