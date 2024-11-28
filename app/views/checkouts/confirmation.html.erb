@@ -1,0 +1,27 @@
+<div class="confirmation-container">
+  <h1>Compra Confirmada!</h1>
+  <p>Obrigado por comprar conosco. Aqui estão os detalhes da sua compra:</p>
+
+  <div class="order-summary">
+    <h2>Detalhes do Pedido</h2>
+    <p><strong>Número do Pedido:</strong> <%= session["order_details"]["order_number"] %></p>
+    <p><strong>Total:</strong> <%= number_to_currency(session["order_details"]["total"]) %></p>
+
+    <h3>Itens:</h3>
+    <% if @order.present? %>
+      <ul>
+        <% @order["items"].each do |item| %>
+          <li>
+            <strong><%= item["name"] %></strong> -
+            Quantidade: <%= item["quantity"] %> -
+            Preço: <%= number_to_currency(item["price"] * item["quantity"]) %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>Nenhum item encontrado no pedido.</p>
+    <% end %>
+  </div>
+
+  <%= link_to "Voltar para a loja", root_path, class: "btn btn-primary" %>
+</div>
