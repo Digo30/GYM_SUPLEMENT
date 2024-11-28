@@ -37,9 +37,25 @@ class CartsController < ApplicationController
   end
 
 
+  def remove_product
+    product = Product.find_by(id: params[:product_id])
+    if product
+      cart_item = @current_cart.cart_items.find_by(product: product)
+      if cart_item
+        cart_item.destroy
+        flash[:notice] = "Produto removido do carrinho com sucesso."
+      else
+        flash[:alert] = "Produto não encontrado no carrinho."
+      end
+    else
+      flash[:alert] = "Produto não encontrado."
+    end
+    redirect_to carts_path
+  end
 
 
-  #TESTE CONTAGEM DE ITENS
+
+
   private
 
   def set_current_cart

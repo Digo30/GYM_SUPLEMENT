@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-
+    @product = Product.find(params[:id])
   end
 
   def create
@@ -33,6 +33,7 @@ class ProductsController < ApplicationController
   end
 
   def update
+    set_user
     if @product.update(product_params)
       redirect_to user_path(@user)
     else
@@ -56,6 +57,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :price, :stock, :brand, :category, :url, :weight, :flavor)
+    params.require(:product).permit(:name, :price, :stock, :brand, :category, :url, :weight, :flavor, :image)
   end
 end

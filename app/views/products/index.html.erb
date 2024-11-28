@@ -11,15 +11,31 @@
     <% @products.each do |product| %>
       <div class="col-md-2 col-sm-12 col-12">
         <div class="product-card">
-          <div class="product-card-image" style="background-image: url('<%= product.url %>')"></div>
+
+          <!-- Imagem do produto -->
+          <div class="product-card-image">
+            <% if product.url.present? %>
+              <%= image_tag product.url, width: 200 %>
+            <% elsif product.image.attached? %>
+              <%= cl_image_tag product.image.key, width: 200 %>
+            <% else %>
+              <%= image_tag 'https://camo.githubusercontent.com/e7260310f5d1a8a9473a908e039f348a459078b0ba1876d12fbe0a26c8a0e1a7/68747470733a2f2f7a7562652e696f2f66696c65732f706f722d756d612d626f612d63617573612f33363664616462316461323032353338616531333332396261333464393030362d696d6167652e706e67', width: 200 %> <!-- ou uma imagem padrão -->
+            <% end %>
+          </div>
           <div class="product-card-content">
+
+            <!-- Título do produto -->
             <div class="product-card-title">
-              <h6 id="product_<%= product.id %>"><%= link_to product.name, product_path(product), class:"text-dark text-decoration-none fw-bold" %></h6>
+              <h6 id="product_<%= product.id %>">
+                <%= link_to product.name, product_path(product), class: "text-dark text-decoration-none fw-bold" %>
+              </h6>
             </div>
+
+            <!-- Preço e estoque -->
             <div class="d-flex">
               <div class="d-flex align-items-center ms-3">
                 <i class="fa-solid fa-brazilian-real-sign"></i>
-                <span> <%=  product.price  %>  </span>
+                <span> <%= product.price %> </span>
               </div>
               <div style="margin: 0 10px;">|</div>
               <div class="d-flex align-items-center">
