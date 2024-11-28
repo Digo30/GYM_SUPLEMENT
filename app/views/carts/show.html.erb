@@ -36,11 +36,12 @@
   </tbody>
 </table>
 
-<<<<<<< HEAD
+
 <!-- Mostrar o preço total do carrinho -->
 <h3>Total da Compra: R$ <%= @cart.total_price %></h3>
 
 <%= link_to 'Finalizar Compra', class: 'btn btn-primary btn-sm' %>
-=======
+
 <p class="text-end"><strong>Total:</strong> R$ <%= number_to_currency(@cart.total_price, unit: "") %></p>
->>>>>>> master
+
+<%= link_to "Finalizar Compra", new_checkout_path, class: "btn btn-primary" %>

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
 
+  resources :checkouts, only: [:new, :create]
 
 
   get 'contact/new'
