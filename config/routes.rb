@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   resources :checkouts, only: [:new, :create]
 
+  get '/checkout/confirmation', to: 'checkouts#confirmation', as: :checkout_confirmation
+
 
   get 'contact/new'
   get 'contact/create'
