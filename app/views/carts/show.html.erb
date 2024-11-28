@@ -10,28 +10,30 @@
 
 
 
-<h1>Carrinho de Compras</h1>
 
-<table>
+<h1>Meu Carrinho</h1>
+
+<table class="table table-dark table-striped">
   <thead>
     <tr>
       <th>Produto</th>
       <th>Quantidade</th>
-      <th>Valor total</th>
+      <th>Preço</th>
+      <th>Ações</th>
     </tr>
   </thead>
   <tbody>
     <% @cart.cart_items.each do |cart_item| %>
-      <tr>
-        <td><%= cart_item.product.name %></td>
-        <td><%= cart_item.quantity %></td>
-        <td>R$ <%= cart_item.total_price %></td>
-      </tr>
-    <% end %>
+  <tr>
+    <td><%= cart_item.product.name %></td>
+    <td><%= cart_item.quantity %></td>
+    <td>R$ <%= number_to_currency(cart_item.total_price, unit: "") %></td>
+    <td>
+      <%= button_to "Remover", remove_product_carts_path(product_id: cart_item.product.id), method: :delete, data: { confirm: "Tem certeza que deseja remover este produto?" }, class: "btn btn-danger btn-sm" %>
+    </td>
+  </tr>
+<% end %>
   </tbody>
 </table>
 
-<!-- Mostrar o preço total do carrinho -->
-<h3>Total da Compra: R$ <%= @cart.total_price %></h3>
-
-<%= link_to 'Finalizar Compra', class: 'btn btn-primary' %>
+<p class="text-end"><strong>Total:</strong> R$ <%= number_to_currency(@cart.total_price, unit: "") %></p>
