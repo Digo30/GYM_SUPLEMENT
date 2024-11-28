@@ -6,7 +6,11 @@
   <ul class="row list-unstyled">
     <% @products.each do |product| %>
       <li class="col-6">
-        <%= image_tag(product.url.presence || 'https://res.cloudinary.com/dhkyacden/image/upload/v1732737091/zqifhneognovtfqc1nl9.png', width: 200) %>
+        <% if product.image.attached? %>
+          <%= cl_image_tag product.image.key, width: 200 %>
+        <% else %>
+          <%= image_tag 'https://camo.githubusercontent.com/e7260310f5d1a8a9473a908e039f348a459078b0ba1876d12fbe0a26c8a0e1a7/68747470733a2f2f7a7562652e696f2f66696c65732f706f722d756d612d626f612d63617573612f33363664616462316461323032353338616531333332396261333464393030362d696d6167652e706e67', width: 200 %> <!-- ou uma imagem padrão -->
+        <% end %>
         <h2><%= product.name %></h2>
         <p>Marca: <%= product.brand %></p>
         <p>R$ <%= product.price %></p>
