@@ -8,4 +8,13 @@ class Cart < ApplicationRecord
     cart_items.sum(&:total_price) # Soma o preço total de cada item no carrinho
   end
 
+
+
+  #TESTE CONTAGEM DE ITENS
+  def total_items
+    cart_items.sum(:quantity)
+  end
+
+
+
 end
