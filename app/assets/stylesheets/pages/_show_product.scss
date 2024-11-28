@@ -5,4 +5,12 @@
     max-width: 100%;
     height: auto;
   }
+  & select {
+    border-color: #d3d3d3;
+  }
+}
+.infos-vendedor {
+  border: 2px solid #d3d3d3;
+  border-radius: 10px;
+  padding: 8px;
 }

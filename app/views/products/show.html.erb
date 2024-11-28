@@ -1,16 +1,34 @@
 <div class="container">
-  <div class="d-flex container-show align-items-center text-center">
-    <div class="d-flex gap-2 ms-5">
+  <div class="d-flex container-show align-items-center text-center mt-3">
+    <div class="d-flex gap-2 ms-2">
       <div>
         <h1><%= @product.name %></h1>
         <p>Categoria: <%= @product.category %></p>
       </div>
-      <i class="fa-solid fa-star mt-3 text-danger"></i>
-      <i class="fa-solid fa-star mt-3 text-danger"></i>
-      <i class="fa-solid fa-star mt-3 text-danger"></i>
-      <i class="fa-solid fa-star mt-3 text-danger"></i>
+      <% stars = rand(1..5) %>
+        <% stars.times do %>
+          <i class="fa-solid fa-star mt-2 text-danger"></i>
+        <% end %>
     </div>
     <%= image_tag @product.url, width: 200 %>
     <p class="fs-4">Preço: <%= number_to_currency(@product.price, unit: "R$", separator: ",", delimiter: ".", precision: 2) %></p>
+    <div class="infos-vendedor text-start mb-4">
+      <h6 class="fs-6 fw-bold mb-3">Informações do vendedor</h6>
+      <p>Vendido por: <span><%= @product.user.nome %>Teste</span></p>
+      <p>Email: <span><%= @product.user.email %></span></p>
+    </div>
+    <% if user_signed_in? %>
+        <%= form_with url: add_product_carts_path(cart_id: current_user.cart.id, product_id: @product.id), method: :post, local: true do %>
+        <div class="mb-3">
+          <label for="quantity" class="form-label">Quantidade:</label>
+          <select id="quantity" name="quantity" class="form-select">
+            <% (1..10).each do |q| %>
+              <option value="<%= q %>"><%= q %></option>
+            <% end %>
+          </select>
+        </div>
+        <%= button_to "Adicionar ao Carrinho", add_product_carts_path(cart_id: current_user.cart.id, product_id: @product.id), method: :post, data: { turbo_stream: true }, class: "btn btn-danger text-light rounded-4 mb-4" %>
+      <% end %>
+    <% end %>
   </div>
 </div>

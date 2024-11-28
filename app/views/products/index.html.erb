@@ -18,9 +18,9 @@
                 <span>Stock: <%= product.stock %></span>
               </div>
             </div>
-
-            <%= button_to "Adicionar ao Carrinho", add_product_carts_path(cart_id: current_user.cart.id, product_id: product.id), method: :post, data: { turbo_stream: true }, class: "btn btn-success" %>
-
+            <% if user_signed_in? %>
+             <%= button_to "Adicionar ao Carrinho", add_product_carts_path(cart_id: current_user.cart.id, product_id: product.id), method: :post, data: { turbo_stream: true }, class: "btn btn-success" %>
+            <% end %>
           </div>
         </div>
       </div>

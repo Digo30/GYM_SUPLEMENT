@@ -15,9 +15,12 @@ class CartsController < ApplicationController
     # Encontre ou inicialize o cart_item
     cart_item = cart.cart_items.find_or_initialize_by(product: product)
 
+    # Recebe a quantidade de produtos desejados
+    quantity = params[:quantity].to_i
+
     # Se o produto já estiver no carrinho, aumente a quantidade
     if cart_item.new_record?
-      cart_item.quantity = 1
+      quantity.zero? ? cart_item.quantity = 1 : cart_item.quantity = quantity
     else
       cart_item.quantity += 1
     end
