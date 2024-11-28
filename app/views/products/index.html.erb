@@ -1,4 +1,12 @@
 <div class="container-products mt-3">
+    <%= form_with url: products_path, method: :get, class: "d-flex search-form" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Escreva o nome do produto"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-danger text-light" %>
+    <% end %>
   <div class="row gx-20 gy-20">
     <% @products.each do |product| %>
       <div class="col-md-2 col-sm-12 col-12">
@@ -35,7 +43,7 @@
               </div>
             </div>
             <% if user_signed_in? %>
-             <%= button_to "Adicionar ao Carrinho", add_product_carts_path(cart_id: current_user.cart.id, product_id: product.id), method: :post, data: { turbo_stream: true }, class: "btn btn-success" %>
+             <%= button_to "Adicionar ao Carrinho", add_product_carts_path(cart_id: current_user.cart.id, product_id: product.id), method: :post, data: { turbo_stream: true }, class: "btn btn-danger rounded-4" %>
             <% end %>
           </div>
         </div>
