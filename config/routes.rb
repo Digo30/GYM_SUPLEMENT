@@ -3,7 +3,12 @@ Rails.application.routes.draw do
 
   resource :carts, only: [:show] do
     post 'add_product/:cart_id', to: 'carts#add_product', as: 'add_product'
+    member do
+      delete :remove_product
+    end
   end
+
+
 
 
   get 'contact/new'
