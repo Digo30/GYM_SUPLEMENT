@@ -1,7 +1,7 @@
 module ApplicationHelper
   def greeting
     if user_signed_in?
-      "Welcome, #{current_user.email}!"
+      "Welcome, #{current_user.nome}!"
     else
       "Welcome, visitor!"
     end
