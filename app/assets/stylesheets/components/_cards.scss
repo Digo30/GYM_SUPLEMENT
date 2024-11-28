@@ -1,19 +1,17 @@
 .container-products {
   margin: 10px auto;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
   display: flex;
   flex-direction: column;
 }
 
 .product-card {
-  border: 1px solid #ddd;
+  border: 1px solid #cfcfcf;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 10px;
   width: 200px;
-  height: 330px;
   background-color: white;
   text-align: center;
 }
@@ -22,12 +20,30 @@
   height: 210px;
   background-size: cover;
   background-position: center;
+
+  & img {
+    max-height: 210px;
+    background-size: cover;
+    background-position: center;
+  }
 }
 
 .container-products .row {
   gap: 20px;
-
 }
 .product-card-content {
   padding: 5px;
+}
+.card-btn {
+  a,
+  button {
+    padding: 10px;
+    font-size: 0.875rem;
+    &:hover {
+      background-color: #e0e0e0;
+    }
+  }
+  a {
+    min-width: 140px;
+  }
 }

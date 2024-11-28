@@ -22,11 +22,8 @@ class CartsController < ApplicationController
     quantity = params[:quantity].to_i
 
     # Se o produto já estiver no carrinho, aumente a quantidade
-    if cart_item.new_record?
-      quantity.zero? ? cart_item.quantity = 1 : cart_item.quantity = quantity
-    else
-      cart_item.quantity += 1
-    end
+
+    quantity.zero? ? cart_item.quantity += 1 : cart_item.quantity += quantity
 
     # Salve o cart_item
     if cart_item.save
