@@ -1,37 +1,37 @@
-    <footer>
-        <div class="footer-content">
-            <a href="#" class="footer-link">
-                <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Início" class="footer-icon">
-                <span>Início</span>
-            </a>
-            <a href="#" class="footer-link">
-                <img src="https://cdn-icons-png.flaticon.com/512/1007/1007988.png" alt="Pedidos" class="footer-icon">
-                <span>Pedidos</span>
-            </a>
+<footer>
+  <div class="footer-content">
+    <%= link_to root_path, class: "footer-link" do %>
+        <%= image_tag "https://cdn-icons-png.flaticon.com/512/1007/1007988.png", alt: "Minha Conta", class: "footer-icon perfil-img" %>
+      <span>Inicio</span>
+    <% end %>
 
-            <!-- Ícone para "Meus pedidos" -->
-            <% if user_signed_in? %>
-              <%= link_to my_products_user_path(current_user), class:"footer-link" do %>
-                <img src="https://cdn-icons-png.flaticon.com/512/1007/1007988.png" alt="Pedidos" class="footer-icon">
-                <span>Meus Anúncios</span>
-              <% end %>
-            <% end %>
+    <a href="#" class="footer-link">
+      <img src="https://cdn-icons-png.flaticon.com/512/1007/1007988.png" alt="Pedidos" class="footer-icon">
+      <span>Pedidos</span>
+    </a>
 
-            <% if user_signed_in? %>
-            <!-- Ícone para "Minha Conta" -->
-            <%= link_to my_account_path(current_user), class: "footer-icon-link" do %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", alt: "Minha Conta", class: "footer-icon perfil-img" %>
-            <% end %>
-          <% else %>
-            <!-- Ícone para "Login" -->
-            <%= link_to new_user_session_path, class: "footer-link" do %>
-              <%= image_tag "perfil.png", alt: "Entrar", class: "footer-icon" %>
-              <span>Login</span>
-            <% end %>
-          <% end %>
+    <!-- Ícone para "Meus Anúncios" -->
+    <% if user_signed_in? %>
+      <%= link_to my_products_user_path(current_user), class: "footer-link" do %>
+        <img src="https://cdn-icons-png.flaticon.com/512/1007/1007988.png" alt="Pedidos" class="footer-icon">
+        <span>Meus Anúncios</span>
+      <% end %>
+    <% end %>
 
-        </div>
-        <div class="footer-text mb-3">
-         About Us: Small Project created by Batch #1850 students - Le wagon São Paulo - Brazil. October - December 2024
-        </div>
-      </footer>
+    <% if user_signed_in? %>
+      <!-- Ícone para "Minha Conta" -->
+      <%= link_to my_account_path(current_user), class: "footer-icon-link" do %>
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", alt: "Minha Conta", class: "footer-icon perfil-img" %>
+      <% end %>
+    <% else %>
+      <!-- Ícone para "Login" -->
+      <%= link_to new_user_session_path, class: "footer-link" do %>
+        <%= image_tag "perfil.png", alt: "Entrar", class: "footer-icon" %>
+        <span>Login</span>
+      <% end %>
+    <% end %>
+  </div>
+  <%# <div class="footer-text mb-3">
+    About Us: Small Project created by Batch #1850 students - Le Wagon São Paulo - Brazil. October - December 2024
+  </div> %>
+</footer>
