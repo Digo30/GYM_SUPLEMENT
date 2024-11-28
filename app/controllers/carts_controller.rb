@@ -1,6 +1,9 @@
 class CartsController < ApplicationController
   before_action :authenticate_user!
 
+  #TESTE CONTAGEM DE ITENS
+  before_action :set_current_cart
+
   def show
     @cart = current_user.cart
   end
@@ -32,4 +35,16 @@ class CartsController < ApplicationController
       redirect_to products_path, alert: 'Ocorreu um erro ao adicionar o produto.'
     end
   end
+
+
+
+
+  #TESTE CONTAGEM DE ITENS
+  private
+
+  def set_current_cart
+    @current_cart = Cart.find_or_create_by(user: current_user) if user_signed_in?
+  end
+
+
 end

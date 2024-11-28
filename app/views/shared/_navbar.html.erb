@@ -28,9 +28,32 @@
     <%= link_to root_path do %>
       <%= image_tag "logo.png" %>
     <% end %>
+
+
+
+
+  <li class="nav-item position-relative">
+  <%= link_to carts_path, class: "nav-link" do %>
+    <i class="fa fa-shopping-cart"></i>
+    <% if @current_cart && @current_cart.total_items.positive? %>
+    <%= image_tag "cart.png" %>
+      <span class="badge bg-danger position-absolute top-0 start-100 translate-middle">
+        <%= @current_cart.total_items %>
+      </span>
+    <% end %>
+  <% end %>
+</li>
+
+
+
+
+    <!-- TESTANDO CONTAGEM DE ITENS
     <%= link_to carts_path, class: "navbar-brand" do %>
       <%= image_tag "cart.png" %>
     <% end %>
+    /li-->
+
+
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -38,3 +61,5 @@
 
   </div>
 </div>
+
+
