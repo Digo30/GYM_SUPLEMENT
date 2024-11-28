@@ -12,17 +12,15 @@ class UsersController < ApplicationController
     @products = @user.products
   end
 
+
   private
 
   def set_user
     @user = User.find(params[:id])
   end
 
-
-
   def my_account
     @user = current_user
   end
-
 
 end
