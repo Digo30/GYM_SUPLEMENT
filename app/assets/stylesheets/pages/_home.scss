@@ -5,6 +5,7 @@ body {
 }
 
 .container-home{
+  background-color: black;
   display: flex;
   flex-direction: column;
   background-image: url('https://res.cloudinary.com/dhkyacden/image/upload/v1732729038/khukhiyzho4derrgtvka.png');
@@ -21,11 +22,11 @@ body {
   text-align: center;
   justify-content: center;
   h1{
-    color: rgb(15, 13, 13);
+    color: white;
     font-size: 4rem;
   }
   h6{
-    color: rgb(15, 13, 13);
+    color: white;
     font-size: 20px;
   }
 }

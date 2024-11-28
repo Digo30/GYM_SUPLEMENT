@@ -1,0 +1,37 @@
+<!-- Mostrar o preço total do carrinho
+<h1>Meu Carrinho</h1>
+<ul id="cart_items">
+  <% @cart.cart_items.each do |cart_item| %>
+    <%= render partial: 'cart_item', locals: { cart_item: cart_item } %>
+  <% end %>
+</ul>
+
+-->
+
+
+
+<h1>Carrinho de Compras</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Produto</th>
+      <th>Quantidade</th>
+      <th>Valor total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cart.cart_items.each do |cart_item| %>
+      <tr>
+        <td><%= cart_item.product.name %></td>
+        <td><%= cart_item.quantity %></td>
+        <td>R$ <%= cart_item.total_price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<!-- Mostrar o preço total do carrinho -->
+<h3>Total da Compra: R$ <%= @cart.total_price %></h3>
+
+<%= link_to 'Finalizar Compra', class: 'btn btn-primary' %>

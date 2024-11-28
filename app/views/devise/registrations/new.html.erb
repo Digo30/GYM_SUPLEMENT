@@ -4,6 +4,13 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.label :nome %>
+    <%= f.text_field :nome, class: "form-control" %>
+    
+    <%= f.input :sobrenome,
+                required: true,
+                autofocus: true,
+                input_text: { autocomplete: "sobrenome" }%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
