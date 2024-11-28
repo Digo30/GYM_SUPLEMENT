@@ -6,13 +6,15 @@
           <li class="nav-item dropdown">
             <%= image_tag "menu.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to image_tag("perfil.png") + " Minha Conta", my_account_path(current_user), class: "dropdown-item" %>
-              <%= link_to image_tag("grid.png") + " Meus produtos", user_products_path(current_user), class: "dropdown-item" %>
-              <%#= link_to "#", class: "dropdown-item" do %>
-              <%#= image_tag "top.png"  Top 20 %>
-              <%# ISSO ESTÁ COMENTADO PRA PODER SER VERIFICADO DEPOIS end %>
-              <%= link_to image_tag("anunciar.png") + " Anunciar", my_products_user_path(current_user), class: "dropdown-item" %>
-              <%= link_to image_tag("contato.png") + "  Contato", contact_new_path, class: "dropdown-item" %>
+            <% if user_signed_in? %>
+                <%= link_to image_tag("perfil.png") + " Minha Conta", my_account_path(current_user), class: "dropdown-item" %>
+                <%= link_to image_tag("grid.png") + " Meus produtos", user_products_path(current_user), class: "dropdown-item" %>
+                <%#= link_to "#", class: "dropdown-item" do %>
+                <%#= image_tag "top.png"  Top 20 %>
+                <%# ISSO ESTÁ COMENTADO PRA PODER SER VERIFICADO DEPOIS end %>
+                <%= link_to image_tag("anunciar.png") + " Anunciar", my_products_user_path(current_user), class: "dropdown-item" %>
+                <%= link_to image_tag("contato.png") + "  Contato", contact_new_path, class: "dropdown-item" %>
+              <% end %>
               <%# link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>
@@ -26,9 +28,32 @@
     <%= link_to root_path do %>
       <%= image_tag "logo.png" %>
     <% end %>
-    <%= link_to "#", class: "navbar-brand" do %>
+
+
+
+
+  <li class="nav-item position-relative">
+  <%= link_to carts_path, class: "nav-link" do %>
+    <i class="fa fa-shopping-cart"></i>
+    <% if @current_cart && @current_cart.total_items.positive? %>
+    <%= image_tag "cart.png" %>
+      <span class="badge bg-danger position-absolute top-0 start-100 translate-middle">
+        <%= @current_cart.total_items %>
+      </span>
+    <% end %>
+  <% end %>
+</li>
+
+
+
+
+    <!-- TESTANDO CONTAGEM DE ITENS
+    <%= link_to carts_path, class: "navbar-brand" do %>
       <%= image_tag "cart.png" %>
     <% end %>
+    /li-->
+
+
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -36,3 +61,5 @@
 
   </div>
 </div>
+
+

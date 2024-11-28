@@ -1,0 +1,7 @@
+<li id="cart_item_<%= cart_item.product.id %>">
+  <h2><%= cart_item.product.name %></h2>
+    <%= image_tag(cart_item.product.url.presence || 'https://res.cloudinary.com/dhkyacden/image/upload/v1732737091/zqifhneognovtfqc1nl9.png', width: 200) %>
+    <p>Quantidade: <%= cart_item.quantity %></p>
+    <p>Marca: <%= cart_item.product.brand %></p>
+    <p>R$ <%= cart_item.product.price %></p>
+</li>
