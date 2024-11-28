@@ -1,0 +1,35 @@
+.checkout-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #1a1a1a;
+  color: #fff;
+  border-radius: 8px;
+}
+
+.cart-summary {
+  margin-bottom: 20px;
+}
+
+.product-image {
+  width: 100px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.product-info {
+  margin-left: 20px;
+}
+
+.btn-success {
+  background-color: #e63946;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-success:hover {
+  background-color: #d62839;
+}

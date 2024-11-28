@@ -37,3 +37,6 @@
 </table>
 
 <p class="text-end"><strong>Total:</strong> R$ <%= number_to_currency(@cart.total_price, unit: "") %></p>
+
+<%= link_to "Finalizar Compra", new_checkout_path, class: "btn btn-primary" %>
+
