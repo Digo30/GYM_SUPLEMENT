@@ -3,10 +3,10 @@
   <div class="p-4 rounded-4 edit-form">
     <%= simple_form_for [@user, @product], html: { class: "input-border" } do |f| %>
       <%= f.input :category, label: "Categoria", as: :select, collection: ['Proteínas', 'Vegano', 'Vegetarianos', 'Termogênicos', 'Vitaminas', 'Clinical', 'Aminoácidos', 'Carboidratos'], prompt: 'Selecione um produto' %>
-      <%= f.input :brand, as: :select, collection: [ "Growth Supplements", "Max Titanium", "Integralmedica", "Black Skull", "Atlhetica Nutrition", "New Millen", "Optimum Nutrition", "Adaptogen", "Under Labz", "Dux Nutrition", "Vitafor", "Universal Nutrition", "Now Foods", "Puravida", "FTW"]  %>
-      <%= f.input :price %>
-      <%= f.input :stock %>
-      <%= f.input :image, as: :file %>
+      <%= f.input :brand, label: "Marca", as: :select, collection: [ "Growth Supplements", "Max Titanium", "Integralmedica", "Black Skull", "Atlhetica Nutrition", "New Millen", "Optimum Nutrition", "Adaptogen", "Under Labz", "Dux Nutrition", "Vitafor", "Universal Nutrition", "Now Foods", "Puravida", "FTW"]  %>
+      <%= f.input :price, label: "Price" %>
+      <%= f.input :stock, label: "Estoque" %>
+      <%= f.input :image, label: "Imagem", as: :file %>
       <div class="d-flex justify-content-between">
         <%= f.submit "Editar Produto", class: "btn btn-danger rounded-4 text-light" %>
         <%= link_to "Meus anúncios", my_products_user_path(@user), class: "btn btn-danger rounded-4 text-light" %>
