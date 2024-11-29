@@ -6,7 +6,7 @@
     <h2>Detalhes do Pedido</h2>
     <p><strong>Número do Pedido:</strong> <%= session["order_details"]["order_number"] %></p>
     <p><strong>Total:</strong> <%= number_to_currency(session["order_details"]["total"]) %></p>
-
+  
     <h3>Itens:</h3>
     <% if @order.present? %>
       <ul>
@@ -24,4 +24,5 @@
   </div>
 
   <%= link_to "Voltar para a loja", root_path, class: "btn btn-primary" %>
+  <%= link_to "Meus pedidos", my_orders_path, class: "btn btn-primary" %>
 </div>

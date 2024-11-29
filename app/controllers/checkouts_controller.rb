@@ -19,6 +19,7 @@ class CheckoutsController < ApplicationController
     end
   end
 
+
   def process_payment
     # Verifica se o carrinho tem itens
     if @cart.cart_items.empty?
@@ -36,13 +37,9 @@ class CheckoutsController < ApplicationController
     # Salva os detalhes do pedido na sessão
     session[:order_details] = @order
 
+
     true
   end
-
-
-
-
-
 
 
 
@@ -53,6 +50,7 @@ class CheckoutsController < ApplicationController
   def confirmation
     @order = session[:order_details]
   end
+
 
 
 
