@@ -1,22 +1,47 @@
 <div class="container">
-  <div class="d-flex justify-content-between align-items-center pt-5 pb-5">
-    <h1 class="text-light">Meus Anuncios</h1>
-    <%= link_to "Anunciar um produto", new_user_product_path(@user), class: "btn btn-success" %>
-  </div>
+    <h1 class="text-dark mt-5 mb-5 text-center fw-bold">Meus Anuncios</h1>
+    <div class="d-flex justify-content-center">
+      <%= link_to "Anunciar um produto", new_user_product_path(@user), class: "btn btn-danger text-light rounded-4" %>
+    </div>
   <ul class="row list-unstyled">
     <% @products.each do |product| %>
-      <li class="col-6">
-        <% if product.image.attached? %>
-          <%= cl_image_tag product.image.key, width: 200 %>
-        <% else %>
-          <%= image_tag 'https://camo.githubusercontent.com/e7260310f5d1a8a9473a908e039f348a459078b0ba1876d12fbe0a26c8a0e1a7/68747470733a2f2f7a7562652e696f2f66696c65732f706f722d756d612d626f612d63617573612f33363664616462316461323032353338616531333332396261333464393030362d696d6167652e706e67', width: 200 %> <!-- ou uma imagem padrão -->
-        <% end %>
-        <h2><%= product.name %></h2>
-        <p>Marca: <%= product.brand %></p>
-        <p>R$ <%= product.price %></p>
-        <%= link_to "Editar Anuncio", edit_user_product_path(@user, product), class:"btn btn-danger text-light rounded-4" %>
-        <%= link_to "Deletar Anuncio", user_product_path(@user, product), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger text-light rounded-4" %>
-      </li>
+      <div class="col-md-6 col-sm-12 col-12">
+
+        <li class="product-card w-100 mt-4 p-2">
+          <div class="product-card-image">
+            <% if product.image.attached? %>
+              <%= cl_image_tag product.image.key, width: 200 %>
+            <% else %>
+              <%= image_tag 'https://camo.githubusercontent.com/e7260310f5d1a8a9473a908e039f348a459078b0ba1876d12fbe0a26c8a0e1a7/68747470733a2f2f7a7562652e696f2f66696c65732f706f722d756d612d626f612d63617573612f33363664616462316461323032353338616531333332396261333464393030362d696d6167652e706e67', width: 200 %> <!-- ou uma imagem padrão -->
+            <% end %>
+          </div>
+
+          <!-- Título do produto -->
+          <div class="product-card-content">
+            <div class="product-card-title">
+              <h6 class= "text-dark text-decoration-none fw-bold"><%= product.name %></h6>
+            </div>
+          </div>
+
+          <!-- Preço e estoque -->
+             <div class="d-flex text-center justify-content-center">
+              <div class="d-flex align-items-center">
+                <span> <%= number_to_currency(product.price, unit: "R$", separator: ",", delimiter: ".", precision: 2) %></span>
+                <div style="margin: 0 10px;">|</div>
+                <span> <%= product.brand %> </span>
+              </div>
+              <div style="margin: 0 10px;">|</div>
+              <div class="d-flex align-items-center">
+                <span>Stock: <%= product.stock %></span>
+              </div>
+            </div>
+            <div class="d-flex gap-3 align-items-center card-btn justify-content-between mt-4">
+              <%= link_to "Editar Anuncio", edit_user_product_path(@user, product), class:"btn btn-danger text-light rounded-4" %>
+              <%= link_to "Deletar Anuncio", user_product_path(@user, product), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger text-light rounded-4" %>
+           </div>
+        </li>
+      </div>
+
     <% end %>
   </ul>
 </div>
