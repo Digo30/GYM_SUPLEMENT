@@ -86,8 +86,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_29_151841) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "url"
-    t.string "flavor"
     t.float "weight"
+    t.string "flavor"
     t.string "description"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
