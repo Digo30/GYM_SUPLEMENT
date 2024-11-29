@@ -1,4 +1,4 @@
-class ContactMailer < ApplicationMailer
+class ApplicationMailer 
   default to: 'seu_email@dominio.com'
 
   def contact_email(contact)
