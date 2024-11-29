@@ -1,14 +1,12 @@
-
-
 <div class="my-account-container">
-  <div class="user-info">
-    <h1>Bem-vindo! <%= current_user.nome %> <%= current_user.sobrenome %></h1>
-    </div>
-
-  <div class="actions">
-    <%= link_to "Editar Perfil", edit_user_registration_path, class: "btn btn-edit" %>
-    <%= link_to "Meus Anúncios", user_products_path(current_user), class: "btn btn-ads" %>
-    <%= link_to "Sair", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-logout" %>
+  <div class="user-info text-center mt-3">
+    <h1>Bem-vindo!</h1>
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", alt: "Minha Conta", class: "rounded-circle mt-5 mb-5" %>
+    <h6 class="fs-3 mb-3"><%= current_user.nome %> <%= current_user.sobrenome %></h6>
   </div>
-
+  <div class="actions d-flex justify-content-between p-3 mt-3">
+    <%= link_to "Editar Perfil", edit_user_registration_path, class: "btn btn-danger text-light rounded-4" %>
+    <%= link_to "Meus Anúncios", user_products_path(current_user), class: "btn btn-danger text-light rounded-4" %>
+    <%= link_to "Sair", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-danger text-light rounded-4" %>
+  </div>
 </div>

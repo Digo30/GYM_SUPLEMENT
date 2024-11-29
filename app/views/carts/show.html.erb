@@ -1,25 +1,13 @@
-<!-- Mostrar o preço total do carrinho
-<h1>Meu Carrinho</h1>
-<ul id="cart_items">
-  <% @cart.cart_items.each do |cart_item| %>
-    <%= render partial: 'cart_item', locals: { cart_item: cart_item } %>
-  <% end %>
-</ul>
+<h1 class="text-center mt-3 mb-3">Meu Carrinho</h1>
 
--->
-
-
-
-
-<h1>Meu Carrinho</h1>
-
-<table class="table table-dark table-striped">
+<div class="container">
+<table class="table table-dark rounded-4">
   <thead>
     <tr>
       <th>Produto</th>
-      <th>Quantidade</th>
+      <th>Qtd.</th>
       <th>Preço</th>
-      <th>Ações</th>
+      <th class="remove-table">Remover</th>
     </tr>
   </thead>
   <tbody>
@@ -28,8 +16,10 @@
     <td><%= cart_item.product.name %></td>
     <td><%= cart_item.quantity %></td>
     <td>R$ <%= number_to_currency(cart_item.total_price, unit: "") %></td>
-    <td>
-      <%= button_to "Remover", remove_product_carts_path(product_id: cart_item.product.id), method: :delete, data: { confirm: "Tem certeza que deseja remover este produto?" }, class: "btn btn-danger btn-sm" %>
+    <td class="remove-table text-center">
+      <%= link_to remove_product_carts_path(product_id: cart_item.product.id), method: :delete, data: { confirm: "Tem certeza que deseja remover este produto?" }, class: "btn btn-danger rounded-circle btn-sm d-inline-flex align-items-center" do %>
+        <i class="fa-solid fa-xmark text-light"></i>
+      <% end %>
     </td>
   </tr>
 <% end %>
@@ -38,10 +28,7 @@
 
 
 <!-- Mostrar o preço total do carrinho -->
-<h3>Total da Compra: R$ <%= @cart.total_price %></h3>
-
-<%= link_to 'Finalizar Compra', class: 'btn btn-primary btn-sm' %>
-
 <p class="text-end"><strong>Total:</strong> R$ <%= number_to_currency(@cart.total_price, unit: "") %></p>
 
-<%= link_to "Finalizar Compra", new_checkout_path, class: "btn btn-primary" %>
+<%= link_to "Finalizar Compra", new_checkout_path, class: "btn btn-danger rounded-4 text-light" %>
+</div>
