@@ -10,9 +10,9 @@
           <i class="fa-solid fa-star mt-2 text-danger"></i>
         <% end %>
     </div>
-    <% if @product.image.attached? %>
-      <%= cl_image_tag @product.image.key, width: 200 %>
-    <% else %>
+     <% if @product.url.present? %>
+      <%= image_tag @product.url, width: 200 %>
+    <% elsif @product.image.attached? %>
       <%= image_tag 'https://camo.githubusercontent.com/e7260310f5d1a8a9473a908e039f348a459078b0ba1876d12fbe0a26c8a0e1a7/68747470733a2f2f7a7562652e696f2f66696c65732f706f722d756d612d626f612d63617573612f33363664616462316461323032353338616531333332396261333464393030362d696d6167652e706e67', width: 200 %> <!-- ou uma imagem padrão -->
     <% end %>
     <p class="fs-4">Preço: <%= number_to_currency(@product.price, unit: "R$", separator: ",", delimiter: ".", precision: 2) %></p>

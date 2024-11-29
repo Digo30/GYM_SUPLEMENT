@@ -1,43 +1,19 @@
-<div class="container-anunciar mt-5 mb-5">
-  <h1 class="text-center mb-4">Anunciar Produto</h1>
-  <%= simple_form_for [@user, @product], html: { multipart: true, class: 'form' } do |f| %>
-    <div class="row">
-      <div class="col-12 col-md-6 mb-3">
-        <%= f.input :category, as: :select, collection: ['Proteínas', 'Vegano', 'Vegetarianos', 'Termogênicos', 'Vitaminas', 'Clinical', 'Aminoácidos', 'Carboidratos'], prompt: 'Selecione uma categoria', input_html: { class: 'form-control' } %>
+<div class="container container-new-form">
+  <h1 class="text-center mt-3 mb-3">Anunciar produto</h1>
+  <div class="edit-form new-form p-3 rounded-4">
+    <%= simple_form_for [@user, @product], html: { multipart: true }, class:"teste-form" do |f| %>
+      <%= f.input :category, as: :select, collection: ['Proteínas', 'Vegano', 'Vegetarianos', 'Termogênicos', 'Vitaminas', 'Clinical', 'Aminoácidos', 'Carboidratos'], prompt: 'Selecione um produto' %>
+      <%= f.input :name, as: :select, collection: ['Whey Protein', 'Creatina', 'Pré-Treino', 'Barra de Proteina', 'Beta Alanina', 'Albumina', "BCAA's"], prompt: 'Selecione um produto' %>
+      <%= f.input :brand, as: :select, collection: [ "Growth Supplements", "Max Titanium", "Integralmedica", "Black Skull", "Atlhetica Nutrition", "New Millen", "Optimum Nutrition", "Adaptogen", "Under Labz", "Dux Nutrition", "Vitafor", "Universal Nutrition", "Now Foods", "Puravida", "FTW"]  %>
+      <%= f.input :flavor, as: :select, collection: [ "Morango", "Chocolate", "Baunilha", "Limão", "Maracujá", "Brigadeiro"]  %>
+      <%= f.input :weight %>
+      <%= f.input :price %>
+      <%= f.input :stock %>
+      <%= f.input :image, as: :file %>
+      <div class="d-flex justify-content-between">
+        <%= f.submit "Anunciar Produto", class: "btn btn-danger rounded-4 text-light" %>
+        <%= link_to "Meus anúncios", user_path(@user), class: "btn btn-danger rounded-4 text-light" %>
       </div>
-      <div class="col-12 col-md-6 mb-3">
-        <%= f.input :name, as: :select, collection: ['Whey Protein', 'Creatina', 'Pré-Treino', 'Barra de Proteina', 'Beta Alanina', 'Albumina', "BCAA's"], prompt: 'Selecione um produto', input_html: { class: 'form-control' } %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-md-6 mb-3">
-        <%= f.input :brand, as: :select, collection: [ "Growth Supplements", "Max Titanium", "Integralmedica", "Black Skull", "Atlhetica Nutrition", "New Millen", "Optimum Nutrition", "Adaptogen", "Under Labz", "Dux Nutrition", "Vitafor", "Universal Nutrition", "Now Foods", "Puravida", "FTW"], prompt: 'Selecione uma marca', input_html: { class: 'form-control' } %>
-      </div>
-      <div class="col-12 col-md-6 mb-3">
-        <%= f.input :flavor, as: :select, collection: [ "Morango", "Chocolate", "Baunilha", "Limão", "Maracujá", "Brigadeiro"], prompt: 'Selecione um sabor', input_html: { class: 'form-control' } %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-md-4 mb-3">
-        <%= f.input :weight, input_html: { class: 'form-control' } %>
-      </div>
-      <div class="col-12 col-md-4 mb-3">
-        <%= f.input :price, input_html: { class: 'form-control' } %>
-      </div>
-      <div class="col-12 col-md-4 mb-3">
-        <%= f.input :stock, input_html: { class: 'form-control' } %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 mb-3">
-        <%= f.input :image, as: :file, input_html: { class: 'form-control' } %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 text-center">
-        <%= f.submit "Anunciar Produto", class: "btn btn-success text-light" %>
-        <%= link_to "Meus anúncios", user_path(@user), class: "btn btn-success text-light" %>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
