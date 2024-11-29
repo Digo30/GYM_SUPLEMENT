@@ -28,6 +28,9 @@
 
   <!-- Mostrar o preço total do carrinho -->
   <p class="text-end"><strong>Total:</strong> R$ <%= number_to_currency(@cart.total_price, unit: "") %></p>
+  <div class="d-flex justify-content-between">
+    <%= link_to "Finalizar Compra", new_checkout_path, class: "btn btn-danger rounded-4 text-light" %>
+    <%= link_to "Olhar mais produtos", products_path, class: "btn btn-danger rounded-4 text-light" %>
+  </div>
 
-  <%= link_to "Finalizar Compra", new_checkout_path, class: "btn btn-danger rounded-4 text-light" %>
 </div>
