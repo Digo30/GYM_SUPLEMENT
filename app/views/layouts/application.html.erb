@@ -17,18 +17,8 @@
   </head>
 
   <body>
-    <!-- Libera a seção ou não se o usuário estiver logado -->
-    <header>
-
-    </header>
-
-    <p><%= greeting %></p>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= render "shared/navbar" %>
         <%= yield %> <!-- Aqui o conteúdo das páginas será renderizado -->
     <%= render "pages/footer" %>
-   </div>
   </body>
 </html>

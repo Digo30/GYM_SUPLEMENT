@@ -31,6 +31,7 @@ class CartsController < ApplicationController
     else
       redirect_to products_path, alert: 'Ocorreu um erro ao adicionar o produto.'
     end
+
   end
 
 
