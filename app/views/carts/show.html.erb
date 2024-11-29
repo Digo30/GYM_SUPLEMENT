@@ -33,7 +33,7 @@
             <td class="cart-back align-middle text-center"><%= cart_item.quantity %></td>
             <td class="cart-back align-middle text-center">R$ <%= number_to_currency(cart_item.total_price, unit: "") %></td>
             <td class="cart-back remove-table align-middle text-center">
-              <%= button_to remove_product_carts_path(product_id: cart_item.product.id), method: :delete, data: { confirm: "Tem certeza que deseja remover este produto?" }, class: "btn btn-danger btn-sm" do %>
+              <%= button_to remove_product_carts_path(product_id: cart_item.product.id), method: :delete, data: { confirm: "Tem certeza que deseja remover este produto?" }, class: "btn btn-danger btn-sm w-50" do %>
                 <i class="fa-solid fa-xmark text-light"></i>
               <% end %>
             </td>

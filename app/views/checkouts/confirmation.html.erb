@@ -1,4 +1,4 @@
-<div class="confirmation-container">
+<div class="confirmation-container ">
   <h1>Compra Confirmada!</h1>
   <p>Obrigado por comprar conosco. Aqui estão os detalhes da sua compra:</p>
 
@@ -6,7 +6,7 @@
     <h2>Detalhes do Pedido</h2>
     <p><strong>Número do Pedido:</strong> <%= session["order_details"]["order_number"] %></p>
     <p><strong>Total:</strong> <%= number_to_currency(session["order_details"]["total"]) %></p>
-  
+
     <h3>Itens:</h3>
     <% if @order.present? %>
       <ul>
@@ -22,7 +22,8 @@
       <p>Nenhum item encontrado no pedido.</p>
     <% end %>
   </div>
-
-  <%= link_to "Voltar para a loja", root_path, class: "btn btn-primary" %>
-  <%= link_to "Meus pedidos", my_orders_path, class: "btn btn-primary" %>
+  <div class="mt-4">
+    <%= link_to "Voltar para a loja", root_path, class: "btn btn-danger rounded-4 text-light" %>
+    <%= link_to "Meus pedidos", my_orders_path, class: "btn btn-danger rounded-4 text-light" %>
+  </div>
 </div>
