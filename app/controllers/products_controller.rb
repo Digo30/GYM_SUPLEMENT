@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     @product.user = @user
     if @product.save
-      redirect_to user_path(@user)
+      redirect_to my_products_user_path(@user)
     else
       render :new, status: :unprocessable_entity
     end
@@ -35,7 +35,7 @@ class ProductsController < ApplicationController
   def update
     set_user
     if @product.update(product_params)
-      redirect_to user_path(@user)
+      redirect_to my_products_user_path(@user)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -43,7 +43,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    redirect_to user_path(@user), notice: 'Produto deletado com sucesso.'
+    redirect_to my_products_user_path(@user), notice: 'Produto deletado com sucesso.'
   end
 
   private
