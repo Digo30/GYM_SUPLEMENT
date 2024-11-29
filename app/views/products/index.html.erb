@@ -46,7 +46,9 @@
             <div class="d-flex gap-3 align-items-center card-btn justify-content-between mt-4">
               <%= link_to "Ver Produto", product_path(product), class: "text-decoration-none text-light btn btn-danger rounded-4" %>
               <% if user_signed_in? %>
-              <%= button_to "Adicionar ao Carrinho", add_product_carts_path(cart_id: current_user.cart.id, product_id: product.id), method: :post, data: { turbo_stream: true }, class: "text-light btn btn-danger rounded-4" %>
+                <%= button_to "Adicionar ao Carrinho", add_product_carts_path(cart_id: current_user.cart.id, product_id: product.id), method: :post, data: { turbo_stream: true }, class: "text-light btn btn-danger rounded-4" %>
+                <% else %>
+                  <%= button_to "Adicionar ao Carrinho", new_user_session_path , class: "text-light btn btn-danger rounded-4" %>
               <% end %>
             </div>
           </div>

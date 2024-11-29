@@ -1,9 +1,10 @@
     <footer>
         <div class="footer-content">
-            <a href="#" class="footer-link">
-                <%= image_tag "home.svg", alt: "Entrar", class: "footer-icon" %>
-                <span>Início</span>
-            </a>
+                <%= link_to products_path, class: "footer-link" do %>
+                  <%= image_tag "home.svg", alt: "Entrar", class: "footer-icon" %>
+                  <span>Início</span>
+                <% end %>
+
             <a href="#" class="footer-link">
                 <%= image_tag "pedido.svg", alt: "Pedidos", class: "footer-icon" %>
                 <span>Pedidos</span>
