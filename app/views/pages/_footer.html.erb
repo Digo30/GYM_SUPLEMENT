@@ -5,12 +5,13 @@
                   <span>Início</span>
                 <% end %>
 
-            <a href="#" class="footer-link">
+            <!-- Ícone para "Meus pedidos" -->
+            <%= link_to my_orders_path, class: "footer-link" do %>
                 <%= image_tag "pedido.svg", alt: "Pedidos", class: "footer-icon" %>
                 <span>Pedidos</span>
-            </a>
+            <% end %>
 
-            <!-- Ícone para "Meus pedidos" -->
+
             <% if user_signed_in? %>
               <%= link_to my_products_user_path(current_user), class:"footer-link" do %>
                 <%= image_tag "anuncio.svg", alt: "Anunciar", class: "footer-icon" %>
