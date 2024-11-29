@@ -1,24 +1,37 @@
 <div class="checkout-container">
-  <h1>Finalizar Compra</h1>
+  <h1>Carrinho</h1>
 
   <div class="cart-summary">
-    <h2>Resumo do Carrinho</h2>
     <ul>
       <% @cart.cart_items.each do |item| %>
-        <li>
-          
-          <div class="product-info">
-            <h3><%= item.product.name %></h3>
-            <p>Quantidade: <%= item.quantity %></p>
-            <p>Preço: <%= number_to_currency(item.product.price * item.quantity) %></p>
+        <li class="cart-item">
+          <div class="product-details">
+            <% if item.product.image.attached? %>
+              <%= cl_image_tag item.product.image.key, width: 150 %>
+            <% elsif item.product.url.present? %>
+              <%= image_tag item.product.url, width: 150 %>
+            <% else %>
+              <%= image_tag 'https://camo.githubusercontent.com/e7260310f5d1a8a9473a908e039f348a459078b0ba1876d12fbe0a26c8a0e1a7/68747470733a2f2f7a7562652e696f2f66696c65732f706f722d756d612d626f612d63617573612f33363664616462316461323032353338616531333332396261333464393030362d696d6167652e706e67', width: 150 %>
+            <% end %>
+
+            <div class="product-info">
+              <h3><%= item.product.name %></h3>
+              <p><%= item.product.description %></p>
+              <div class="price-info">
+                <p><strong>Preço Unitário:</strong> R$ <%= item.product.price %></p>
+                <p><strong>Quantidade:</strong> <%= item.quantity %></p>
+                <p><strong>Total:</strong> R$ <%= item.product.price * item.quantity %></p>
+              </div>
+            </div>
           </div>
         </li>
       <% end %>
     </ul>
-    <h3>Total: <%= number_to_currency(@total_price) %></h3>
+
+    <h3><strong>Total Geral:</strong> R$ <%= @total_price %></h3>
   </div>
 
   <%= form_with url: checkouts_path, method: :post do %>
-    <%= submit_tag "Finalizar Compra", class: "btn btn-success" %>
+    <%= submit_tag "Finalizar Compra", id: "cart-button", class: "btn btn-success" %>
   <% end %>
 </div>
