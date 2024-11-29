@@ -1,19 +1,20 @@
-
 <div class="confirmation-container">
   <h1>Meus Pedidos</h1>
-  <p>Aqui estão os detalhes dos seus pedidos:</p>
 
-  <div class="order-summary">
-    <h2>Detalhes do Pedido</h2>
+  <% if session["order_details"].present? %>
+    <p>Aqui estão os detalhes dos seus pedidos:</p>
 
-    <p><strong>Número do Pedido:</strong> <%= session["order_details"]["order_number"] %></p>
-    <p><strong>Total:</strong> <%= number_to_currency(session["order_details"]["total"]) %></p>
+    <div class="order-summary">
+      <h2>Detalhes do Pedido</h2>
 
+      <p><strong>Número do Pedido:</strong> <%= session["order_details"]["order_number"] %></p>
+      <p><strong>Total:</strong> <%= number_to_currency(session["order_details"]["total"]) %></p>
 
-
-
-<% session["order_details"]["items"].each do |item| %>
-  <p><%= item["name"] %> - <%= number_to_currency(item["price"]) %></p>
-<% end %>
-</div>
+      <% session["order_details"]["items"].each do |item| %>
+        <p><%= item["name"] %> - <%= number_to_currency(item["price"]) %></p>
+      <% end %>
+    </div>
+  <% else %>
+    <p><strong>Sem pedidos</strong></p>
+  <% end %>
 </div>
