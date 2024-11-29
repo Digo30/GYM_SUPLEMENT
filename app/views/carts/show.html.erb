@@ -1,34 +1,33 @@
 <h1 class="text-center mt-3 mb-3">Meu Carrinho</h1>
 
 <div class="container">
-<table class="table table-dark rounded-4">
-  <thead>
-    <tr>
-      <th>Produto</th>
-      <th>Qtd.</th>
-      <th>Preço</th>
-      <th class="remove-table">Remover</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @cart.cart_items.each do |cart_item| %>
-  <tr>
-    <td><%= cart_item.product.name %></td>
-    <td><%= cart_item.quantity %></td>
-    <td>R$ <%= number_to_currency(cart_item.total_price, unit: "") %></td>
-    <td class="remove-table text-center">
-      <%= link_to remove_product_carts_path(product_id: cart_item.product.id), method: :delete, data: { confirm: "Tem certeza que deseja remover este produto?" }, class: "btn btn-danger rounded-circle btn-sm d-inline-flex align-items-center" do %>
-        <i class="fa-solid fa-xmark text-light"></i>
+  <table class="table table-dark rounded-4">
+    <thead>
+      <tr>
+        <th class="text-center">Produto</th>
+        <th class="text-center">Qtd.</th>
+        <th class="text-center">Preço</th>
+        <th class="remove-table text-center">Remover</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cart.cart_items.each do |cart_item| %>
+      <tr>
+        <td class="align-middle text-center"><%= cart_item.product.name %></td>
+        <td class="align-middle text-center"><%= cart_item.quantity %></td>
+        <td class="align-middle text-center">R$ <%= number_to_currency(cart_item.total_price, unit: "") %></td>
+        <td class="remove-table align-middle text-center">
+          <%= button_to remove_product_carts_path(product_id: cart_item.product.id), method: :delete, data: { confirm: "Tem certeza que deseja remover este produto?" }, class: "btn btn-danger d-inline-flex align-items-center btn-remove w-auto" do %>
+            <i class="fa-solid fa-xmark text-light"></i>
+          <% end %>
+        </td>
+      </tr>
       <% end %>
-    </td>
-  </tr>
-<% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
+  <!-- Mostrar o preço total do carrinho -->
+  <p class="text-end"><strong>Total:</strong> R$ <%= number_to_currency(@cart.total_price, unit: "") %></p>
 
-<!-- Mostrar o preço total do carrinho -->
-<p class="text-end"><strong>Total:</strong> R$ <%= number_to_currency(@cart.total_price, unit: "") %></p>
-
-<%= link_to "Finalizar Compra", new_checkout_path, class: "btn btn-danger rounded-4 text-light" %>
+  <%= link_to "Finalizar Compra", new_checkout_path, class: "btn btn-danger rounded-4 text-light" %>
 </div>
