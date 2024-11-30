@@ -1,25 +1,25 @@
 <div class="container-products container-new-form mt-3">
-    <%= form_with url: products_path, method: :get, class: "d-flex search-form" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Escreva o nome do produto"
-        %>
-      <%= submit_tag "Search", name: "", class: "btn btn-danger text-light" %>
-    <% end %>
-  <div class="row gx-20 gy-20">
+  <%= form_with url: products_path, method: :get, class: "d-flex search-form" do %>
+    <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Escreva o nome do produto"
+      %>
+    <%= submit_tag "Search", name: "", class: "btn btn-danger text-light" %>
+  <% end %>
+  <div class="row row-product">
     <% @products.each do |product| %>
-      <div class="col-md-6 col-sm-12 col-12">
-        <div class="product-card w-100 mt-4 p-2">
+      <div class="col-md-6 col-sm-12 col-12 col-custom">
+        <div class="product-card mt-4 p-2">
 
           <!-- Imagem do produto -->
           <div class="product-card-image">
             <% if product.url.present? %>
-              <%= image_tag product.url, width: 200 %>
+              <%= image_tag product.url %>
             <% elsif product.image.attached? %>
-              <%= cl_image_tag product.image.key, width: 200 %>
+              <%= cl_image_tag product.image.key %>
             <% else %>
-              <%= image_tag 'https://camo.githubusercontent.com/e7260310f5d1a8a9473a908e039f348a459078b0ba1876d12fbe0a26c8a0e1a7/68747470733a2f2f7a7562652e696f2f66696c65732f706f722d756d612d626f612d63617573612f33363664616462316461323032353338616531333332396261333464393030362d696d6167652e706e67', width: 200 %> <!-- ou uma imagem padrão -->
+              <%= image_tag 'https://camo.githubusercontent.com/e7260310f5d1a8a9473a908e039f348a459078b0ba1876d12fbe0a26c8a0e1a7/68747470733a2f2f7a7562652e696f2f66696c65732f706f722d756d612d626f612d63617573612f33363664616462316461323032353338616531333332396261333464393030362d696d6167652e706e67' %> <!-- ou uma imagem padrão -->
             <% end %>
           </div>
           <div class="product-card-content">
@@ -43,12 +43,12 @@
                 <span>Stock: <%= product.stock %></span>
               </div>
             </div>
-            <div class="d-flex gap-3 align-items-center card-btn justify-content-between mt-4">
+            <div id="buttom-cards" class="d-flex align-items-center card-btn justify-content-between mt-4">
               <%= link_to "Ver Produto", product_path(product), class: "text-decoration-none text-light btn btn-danger rounded-4" %>
               <% if user_signed_in? %>
                 <%= button_to "Adicionar ao Carrinho", add_product_carts_path(cart_id: current_user.cart.id, product_id: product.id), method: :post, data: { turbo_stream: true }, class: "text-light btn btn-danger rounded-4" %>
-                <% else %>
-                  <%= button_to "Adicionar ao Carrinho", new_user_session_path , class: "text-light btn btn-danger rounded-4" %>
+              <% else %>
+                <%= button_to "Adicionar ao Carrinho", new_user_session_path , class: "text-light btn btn-danger rounded-4" %>
               <% end %>
             </div>
           </div>

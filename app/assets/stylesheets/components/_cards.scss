@@ -11,36 +11,86 @@
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 1px 1px 1px #c9c8c8, -1px -1px 1px #c9c8c8;
-  width: 200px;
   background-color: white;
   text-align: center;
+  width: 100%;
 }
 
 .product-card-image {
   height: 210px;
   background-size: cover;
   background-position: center;
+}
 
-  & img {
-    max-height: 210px;
-    background-size: cover;
-    background-position: center;
-  }
+.product-card-image img {
+  max-height: 210px;
+  background-size: cover;
+  background-position: center;
 }
 
 .container-products .row {
   gap: 20px;
 }
+
 .product-card-content {
   padding: 5px;
+  display: grid;
+  justify-items: center;
 }
-.card-btn {
-  a,
-  button {
-    padding: 10px;
+
+.card-btn a,
+.card-btn button {
+  padding: 10px;
+  font-size: 0.875rem;
+}
+
+.card-btn a {
+  min-width: 30px;
+}
+
+.row-product {
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#buttom-cards {
+  width: 200px;
+  gap: 10px;
+}
+
+@media (max-width: 874px) {
+  .col-custom {
+    flex: 0 0 48%;
+    max-width: 48%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 402px) {
+  .col-custom {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  #buttom-cards {
+    width: 300px;
+    
+    button.btn {
+      width: 150px;
+    }
+  }
+
+  .card-btn a {
+    min-width: 80px;
+    padding: 20px;
+  }
+
+  .card-btn button {
     font-size: 0.875rem;
+    width: 200px;
   }
-  a {
-    min-width: 140px;
-  }
+
+
 }
