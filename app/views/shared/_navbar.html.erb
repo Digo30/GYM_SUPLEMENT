@@ -13,10 +13,14 @@
                   <%#= link_to "#", class: "dropdown-item" do %>
                   <%#= image_tag "top.png"  Top 20 %>
                   <%# ISSO ESTÁ COMENTADO PRA PODER SER VERIFICADO DEPOIS end %>
-                  <%= link_to image_tag("anunciar.png") + " Anunciar", my_products_user_path(current_user), class: "dropdown-item" %>
-                  <%= link_to image_tag("contato.png") + "  Contato", contact_new_path, class: "dropdown-item" %>
-                <% end %>
-                <%# link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+
+              <% else %>
+                <%= link_to image_tag("perfil.png") + " Login", new_user_session_path, class: "dropdown-item" %>
+              <% end %>
+              <%= link_to image_tag("anunciar.png") + " Anunciar", new_user_session_path, class: "dropdown-item" %>
+              <%= link_to image_tag("https://cdn-icons-png.flaticon.com/512/38/38464.png") + " GYM Moviment", "https://gym-moviment-ea7f109defa9.herokuapp.com/", class: "gym-moviment", target: "_blank", rel: "noopener" %>
+              <%= link_to image_tag("contato.png") + "  Contato", contact_new_path, class: "dropdown-item" %>
+              <%# link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
               </div>
             </div>
           </li>

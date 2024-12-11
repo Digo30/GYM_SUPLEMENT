@@ -6,7 +6,7 @@
                 <% end %>
 
             <!-- Ícone para "Meus pedidos" -->
-            <% if user_signed_in? %>
+          <% if user_signed_in? %>
               <%= link_to my_orders_path, class: "footer-link" do %>
                   <%= image_tag "pedido.svg", alt: "Pedidos", class: "footer-icon" %>
                   <span>Pedidos</span>
@@ -25,6 +25,8 @@
             <% end %>
           <% else %>
             <!-- Ícone para "Login" -->
+           <%= link_to "GYM Moviment", "https://gym-moviment-ea7f109defa9.herokuapp.com/", class: "gym-link", target: "_blank", rel: "noopener" %>
+
             <%= link_to new_user_session_path, class: "footer-link" do %>
               <%= image_tag "user.svg", alt: "Entrar", class: "footer-icon" %>
               <span>Login</span>
