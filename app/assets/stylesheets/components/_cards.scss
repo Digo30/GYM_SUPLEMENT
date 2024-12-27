@@ -68,7 +68,7 @@
   }
 }
 
-@media (max-width: 402px) {
+@media (max-width: 776px) {
   .col-custom {
     flex: 0 0 100%;
     max-width: 100%;
@@ -76,7 +76,7 @@
 
   #buttom-cards {
     width: 300px;
-    
+
     button.btn {
       width: 150px;
     }

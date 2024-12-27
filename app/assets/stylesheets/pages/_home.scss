@@ -31,8 +31,7 @@ body {
   }
 }
 
-/* Resolução para iPhone 16 Pro */
-@media (max-width: 402px) and (max-height: 874px) {
+@media (max-width: 776px) and (max-height: 874px) {
   .container-page {
     background-position: top;
     padding: 2rem 1rem;
